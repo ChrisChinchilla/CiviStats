@@ -1,3 +1,32 @@
+CiviStats v1
+This is a proposed API change to allow for easy calling and rendering of creation stats in CiviCRM for display in a website's front end.
+
+The only file addition is inside the api/v3/stats.php folder
+
+So far, here's what you can do:
+
+
+All contributions and how many
+{crmAPI var="StatsS" entity="Stats" action="totalcontributions" q="civicrm/ajax/rest" sequential="1" }
+Amount: {$StatsS.total|crmMoney}
+Count: {$StatsS.count}
+
+Yearly contributions and how many
+{crmAPI var="StatsS" entity="Stats" action="yearlycontributions" q="civicrm/ajax/rest" sequential="1" }
+Amount: {$StatsS.total|crmMoney}
+Count: {$StatsS.count}
+
+Number of members
+{crmAPI var="StatsS" entity="Stats" action="current" q="civicrm/ajax/rest" sequential="1" }
+{$StatsS}
+
+
+
+
+
+Rest of default Civi read me follows…
+
+
 *************************
 README file for CiviCRM
 *************************

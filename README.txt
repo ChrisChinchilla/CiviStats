@@ -1,6 +1,8 @@
 CiviStats v1
 This is a proposed API change to allow for easy calling and rendering of creation stats in CiviCRM for display in a website's front end.
 
+This project was started as part of Random Hacks of Kindness 2012
+
 The only file addition is inside the api/v3/stats.php folder
 
 So far, here's what you can do:

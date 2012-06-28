@@ -7,17 +7,17 @@ So far, here's what you can do:
 
 
 All contributions and how many
-{crmAPI var="StatsS" entity="Stats" action="totalcontributions" q="civicrm/ajax/rest" sequential="1" }
+{crmAPI var="StatsS" entity="Stats" action="totalcontributions" sequential="1" }
 Amount: {$StatsS.total|crmMoney}
 Count: {$StatsS.count}
 
 Yearly contributions and how many
-{crmAPI var="StatsS" entity="Stats" action="yearlycontributions" q="civicrm/ajax/rest" sequential="1" }
+{crmAPI var="StatsS" entity="Stats" action="yearlycontributions" sequential="1" }
 Amount: {$StatsS.total|crmMoney}
 Count: {$StatsS.count}
 
 Number of members
-{crmAPI var="StatsS" entity="Stats" action="current" q="civicrm/ajax/rest" sequential="1" }
+{crmAPI var="StatsS" entity="Stats" action="current" sequential="1" }
 {$StatsS}
 
 

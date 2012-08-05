@@ -70,6 +70,15 @@ function civicrm_api3_stats_current($params) {
     return $memberTotal ;
 }
 
+function civicrm_api3_stats_groupmembers($params) 
+{
+        require_once 'CRM/Utils/Pager.php';
+
+        $groupMembers = civicrm_api("GroupContact","get", array (version => 3,'sequential' =>'1', 'group_id' => $params['group_id'], 'option_limit' => 100000));
+        
+        return $groupMembers ;
+}
+
 function civicrm_api3_stats_totalcontributions($params)
 {
 	$results = civicrm_api("Contribution","get", array (version => 3,'q' =>'civicrm/ajax/rest', 'sequential' =>'1', 'contribution_status_id' => 1));
@@ -95,6 +104,27 @@ function civicrm_api3_stats_yearlycontributions($params)
 	foreach($results['values'] as $result)
 	{
 		if ($result['receive_date'] >= $yearAgo && $result['receive_date'] <= $today)
+		{
+			$total += $result['total_amount'] ;
+			$count ++ ; 
+		}
+	}
+	
+	return array('total' => $total, 'count' => $count) ;
+}
+
+function civicrm_api3_stats_monthlycontributions($params)
+{
+	$today = date("Y-m-d H:i:s") ;
+	$monthAgo = date("Y-m-d H:i:s",strtotime(date("Y-m-d H:i:s", strtotime($today)) . "-1 month"));
+		
+	$results = civicrm_api("Contribution","get", array (version => 3,'q' =>'civicrm/ajax/rest', 'sequential' =>'1', 'contribution_status_id' => 1));
+	// Need to make allowances for currency, i.e. contributions by currency
+	$total = 0 ;
+	$count = 0 ;
+	foreach($results['values'] as $result)
+	{
+		if ($result['receive_date'] >= $monthAgo && $result['receive_date'] <= $today)
 		{
 			$total += $result['total_amount'] ;
 			$count ++ ; 

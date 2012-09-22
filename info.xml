@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<extension key="com.chrischinchilla.civistats" type="module">
+  <file>civistats</file>
+  <name>CiviStats</name>
+  <description>Adds API calls to allow for easy calling and rendering of creation stats in CiviCRM for display in a website's front end.</description>
+  <license></license>
+  <maintainer>
+    <author>Chris Ward</author>
+    <email>chriswhward@gmail.com</email>
+  </maintainer>
+  <releaseDate>2012-09-22</releaseDate>
+  <version>1.0</version>
+  <develStage>alpha</develStage>
+  <compatibility>
+    <ver>4.2</ver>
+  </compatibility>
+  <comments>This is a new module, needs some more work yet…</comments>
+  <civix>
+    <namespace>CRM/Civistats</namespace>
+  </civix>
+</extension>
